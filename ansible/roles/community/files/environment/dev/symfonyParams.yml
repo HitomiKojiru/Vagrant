@@ -1,0 +1,11 @@
+parameters:
+    database_host: localhost
+    database_port: null
+    database_name: communityDB
+    database_user: communityUser
+    database_password: klXO4ThVSBpi
+    mailer_transport: smtp
+    mailer_host: 127.0.0.1
+    mailer_user: null
+    mailer_password: null
+    secret: 4f224c7734b2f7f9e795f91e662bb8fc351f00b3

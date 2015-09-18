@@ -1,0 +1,8 @@
+---
+- name: copy in symfony2 parameters
+  copy: src=environment/dev/symfonyParams.yml dest=/checkouts/community/app/config/parameters.yml owner=root group=root mode=0644
+
+- name: composer install
+  command: composer install
+  args:
+    chdir: /checkouts/community

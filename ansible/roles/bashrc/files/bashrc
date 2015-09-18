@@ -12,6 +12,6 @@ if [ -f ~/git-prompt.sh ]; then
 
 fi
 
-alias ll='ls -ltra'
+alias ll='ls -Al'
 
-cd /checkouts/
+cd /checkouts/community
