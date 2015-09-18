@@ -1,0 +1,16 @@
+---
+- name: Register Symfony app
+  stat: path=/usr/local/bin/symfony
+  register: symfony_app
+
+- name: Curl Symfony Installer
+  command: sudo curl -LsS http://symfony.com/installer -o /usr/local/bin/symfony
+  when: symfony_app.stat.exists == false
+
+- name: Fix Permissions on Symfony Installer
+  command: sudo chmod a+x /usr/local/bin/symfony
+  when: symfony_app.stat.exists == false
+
+- name: Update the installer
+  command: symfony self-update
+  when: symfony_app.stat.exists == true

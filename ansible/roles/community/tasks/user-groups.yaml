@@ -1,0 +1,6 @@
+---
+- name: Adding vagrant user to www-data group
+  user: name=vagrant groups=www-data append=yes
+
+- name: Adding www-data user to vagrant group
+  user: name=www-data groups=vagrant append=yes

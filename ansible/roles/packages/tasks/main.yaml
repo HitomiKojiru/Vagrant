@@ -1,0 +1,29 @@
+---
+- name: add the repo for php 5.6.10
+  apt_repository: repo='ppa:ondrej/php5-5.6'
+
+- name: Install Required Packages
+  apt: name={{ item }} state=latest update_cache=yes
+  with_items:
+    - apache2
+    - curl
+    - automake
+    - build-essential
+    - git
+    - memcached
+    - mysql-client-5.5
+    - mysql-server-5.5
+    - mysql-utilities
+    - python-mysqldb
+    - nodejs-legacy
+    - npm
+    - php5
+    - php5-curl
+    - php5-gd
+    - php5-memcache
+    - php5-mysql
+    - php5-oauth
+    - php5-intl
+    - python-pip
+    - supervisor
+    - nano

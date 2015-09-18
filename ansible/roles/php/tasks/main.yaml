@@ -1,0 +1,5 @@
+- name: php | setup php.ini
+  template: src=php.ini.j2 dest=/etc/php5/{{ item }}/php.ini owner=root group=root mode=0644
+  with_items:
+    - apache2
+    - cli

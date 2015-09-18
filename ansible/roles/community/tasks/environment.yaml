@@ -1,0 +1,7 @@
+---
+- name: environment | copy environment variables
+  copy: src=environment/dev/environment dest=/etc/environment owner=root group=root mode=0644
+
+- name: apache | init.d changes
+  copy: src=environment/envvars dest=/etc/apache2/envvars owner=root group=root mode=0644
+

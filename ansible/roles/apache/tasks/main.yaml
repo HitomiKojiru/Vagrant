@@ -1,0 +1,13 @@
+---
+- name: Disable default apache site
+  shell: a2dissite 000-default
+
+- name: Enable modules
+  apache2_module: state=present name={{ item }}
+  with_items:
+    - rewrite
+    - headers
+    - ssl
+
+- name: add ServerName localhost to the apache2.conf
+  shell: echo "ServerName localhost" >> /etc/apache2/apache2.conf

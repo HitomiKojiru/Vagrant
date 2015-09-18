@@ -1,0 +1,13 @@
+---
+- hosts: all
+  sudo: yes
+  sudo_user: root
+  gather_facts: yes
+  roles:
+    - packages
+    - php
+    - apache
+    - composer
+    - mysql-server
+    - bashrc
+    - symfony

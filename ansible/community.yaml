@@ -1,0 +1,25 @@
+---
+- hosts: all
+  sudo: yes
+  sudo_user: root
+  gather_facts: yes
+  vars:
+    samba_default_shares:
+      'checkouts':
+        path: '/checkouts'
+        comment: 'checkouts'
+        browseable: yes
+        writeable: yes
+        guest_ok: yes
+        public: yes
+        read_only: no
+        force_user: www-data
+        force_group: www-data
+        write_list: www-data
+        create_mask: 775
+        directory_mask: 775
+  roles:
+    - community
+    - samba
+    - code
+    - permissions

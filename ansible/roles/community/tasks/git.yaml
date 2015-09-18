@@ -1,0 +1,13 @@
+---
+- name: git | add .gitconfig files
+  template: src=git/gitconfig.j2 dest=/home/vagrant/.gitconfig owner=vagrant group=vagrant mode=0644
+
+- name: create checkouts dir
+  file: path=/checkouts state=directory owner=vagrant group=vagrant mode=0775
+
+- name: git | clone codebase
+  git: repo=git+ssh://git@git.assembla.com:jh.communit.git
+       dest=/checkouts/community
+       accept_hostkey=True
+       update=no
+       version=develop

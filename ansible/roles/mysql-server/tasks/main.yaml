@@ -1,0 +1,18 @@
+---
+- name: Configure | my.cnf
+  copy: src=my.cnf dest=/etc/mysql/ owner=root group=root mode=0644
+  notify:
+    - restart mysql
+
+- name: Create database
+  mysql_db: name=communityDB state=present
+
+- name: Grant access
+  mysql_user: name=communityUser host={{ item }}  password=klXO4ThVSBpi priv=*.*:ALL,GRANT state=present append_privs=yes
+  with_items:
+    - "{{ ansible_hostname }}"
+    - 127.0.0.1
+    - ::1
+    - localhost
+    - 192.168.%
+    - 10.10.%

@@ -1,0 +1,10 @@
+---
+- name: Copy in .bashrc
+  copy: src=bashrc dest=/home/vagrant/.bashrc owner=vagrant group=vagrant mode=0644
+
+- name: Copy in .bash_profile
+  copy: src=bash_profile dest=/home/vagrant/.bash_profile owner=vagrant group=vagrant mode=0644
+
+- name: Copy in git-prompt.sh
+  copy: src=git-prompt.sh dest=/home/vagrant/git-prompt.sh owner=vagrant group=vagrant mode=0644
+

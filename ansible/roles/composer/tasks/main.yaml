@@ -1,0 +1,20 @@
+---
+- name: register if composer is installed
+  stat: path=/usr/local/bin/composer
+  register: composer_installed
+
+- name: Download Composer into the current directory.
+  shell: >
+    curl -sS https://getcomposer.org/installer | php
+  when: composer_installed.stat.exists == False
+
+- name: Move Composer into globally-accessible location.
+  shell: >
+    mv composer.phar /usr/local/bin/composer
+  when: composer_installed.stat.exists == False
+
+- name: Update Composer to latest version
+  shell: >
+    php /usr/local/bin/composer self-update
+  register: composer_update
+  changed_when: "'Updating to version' in composer_update.stdout"

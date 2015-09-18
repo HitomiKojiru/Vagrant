@@ -1,0 +1,12 @@
+---
+- name: apache | install vhosts
+  template: src=apache/{{ item }}.conf.j2 dest=/etc/apache2/sites-available/{{ item }}.conf owner=root group=root mode=0644
+  with_items:
+    - 00-community
+  notify: restart apache
+
+- name: apache | enable sites
+  command: a2ensite {{ item }}
+  with_items:
+    - 00-community
+  notify: restart apache
