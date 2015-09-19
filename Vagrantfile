@@ -26,6 +26,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         communityvm.vm.provision :file, :source => '~/.ssh/github_rsa', :destination => '/home/vagrant/.ssh/github_rsa'
         communityvm.vm.provision :file, :source => '~/.ssh/config', :destination => '/home/vagrant/.ssh/config'
         communityvm.vm.provision "shell", inline: "chmod 0600 /home/vagrant/.ssh/github_rsa"
+        communityvm.vm.provision "shell", inline: "chmod 0600 /home/vagrant/.ssh/config"
 
         communityvm.vm.network "private_network", ip: "192.168.56.25"
 
