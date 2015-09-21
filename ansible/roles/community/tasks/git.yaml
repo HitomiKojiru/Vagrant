@@ -10,7 +10,7 @@
        dest=/checkouts/community
        accept_hostkey=True
        update=no
-       version=master
+       version=develop
   sudo: true
   sudo_user: "vagrant"
 

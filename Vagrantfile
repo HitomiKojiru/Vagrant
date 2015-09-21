@@ -15,7 +15,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
         communityvm.vm.provider :virtualbox do |vb|
             #set this to true if you need to debug why the machine isn't starting up it will spawn a terminal window in virtual box that you can view
-            vb.gui = false
+            vb.gui = true
             vb.customize ["modifyvm", :id, "--memory", "2048"]
             vb.customize ["modifyvm", :id, "--vram", "12"]
             vb.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
