@@ -1,0 +1,4 @@
+---
+- name: install bower components
+  become_user: vagrant
+  command: bower install --config.interactive=false chdir=/checkouts/community/

@@ -1,0 +1,3 @@
+---
+- name: Change directory permissions for everything in checkouts
+  file: path=/checkouts owner=www-data group=www-data mode=775 recurse=yes

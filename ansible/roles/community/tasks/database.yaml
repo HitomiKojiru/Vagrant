@@ -1,0 +1,7 @@
+---
+- name: load database
+  shell: ./dbl
+  args:
+    chdir: /checkouts/community/
+  sudo: true
+  sudo_user: vagrant

@@ -15,7 +15,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
         communityvm.vm.provider :virtualbox do |vb|
             #set this to true if you need to debug why the machine isn't starting up it will spawn a terminal window in virtual box that you can view
-            vb.gui = true
+            vb.gui = false
             vb.customize ["modifyvm", :id, "--memory", "2048"]
             vb.customize ["modifyvm", :id, "--vram", "12"]
             vb.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
@@ -31,14 +31,14 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         communityvm.vm.network "private_network", ip: "192.168.56.25"
 
         # Install Ansible
-        communityvm.vm.provision :shell,
-            :keep_color => true,
-            :inline => "cd /vagrant/scripts && ./ansible.sh"
+#        communityvm.vm.provision :shell,
+#            :keep_color => true,
+#            :inline => "cd /vagrant/scripts && ./ansible.sh"
 
         # setup baseline box
-        communityvm.vm.provision :shell,
-            :keep_color => true,
-            :inline => "export PYTHONUNBUFFERED=1 && export ANSIBLE_FORCE_COLOR=1 && cd /vagrant/ansible && ansible-playbook -c local -i 192.168.56.25, main.yaml"
+#        communityvm.vm.provision :shell,
+#            :keep_color => true,
+#            :inline => "export PYTHONUNBUFFERED=1 && export ANSIBLE_FORCE_COLOR=1 && cd /vagrant/ansible && ansible-playbook -c local -i 192.168.56.25, main.yaml"
 
         # setup community
         communityvm.vm.provision :shell,

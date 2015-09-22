@@ -1,8 +1,10 @@
 ---
 - name: copy in symfony2 parameters
-  copy: src=environment/dev/symfonyParams.yml dest=/checkouts/community/app/config/parameters.yml owner=root group=root mode=0644
+  copy: src=environment/dev/symfonyParams.yml dest=/checkouts/community/app/config/parameters.yml owner=www-data group=www-data mode=0664
 
 - name: composer install
   command: composer install
   args:
     chdir: /checkouts/community
+  sudo: true
+  sudo_user: vagrant
