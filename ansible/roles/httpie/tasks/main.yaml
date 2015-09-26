@@ -1,0 +1,3 @@
+---
+- name: Install httpie
+  command: pip install --upgrade httpie
